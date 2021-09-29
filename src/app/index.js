@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
@@ -34,6 +35,8 @@ import Card from "@heruka_urgyen/react-playing-cards"
 import options from '../utils/enums'
 import {generateHand, generateRandomDraw, convertFaceToTen} from '../utils'
 import { basicStrategyValues, basicStrategyPairs, basicStrategyAces } from '../utils/basicStrategy'
+
+import backgroundImg from '../img/felt.png'
 
 export default function App() {
   const [ feedback, setFeedback ] = useState(null)
@@ -99,19 +102,28 @@ export default function App() {
       spacing={2}
       direction="column"
       alignItems="center"
-      justify="center"
-      style={{ minHeight: '100vh' }}
+      justifyContent="center"
+      style={{ 
+        minHeight: '100vh',
+        minWidth: '100vw',
+        backgroundColor: '#006636',
+        backgroundImage: `url(${backgroundImg})`
+      }}
     >
       <Grid item xs={12} lg={8}>
         <Stack spacing={2} direction="row">
+          <div>
           <Card 
             height={window.screen.availHeight * .25} 
             back
           />
-          <Card 
-            card={dealerHand.card}
-            height={window.screen.availHeight * .25}
-          />
+          </div>
+          <div style={{ marginLeft: '-100px', marginTop: '-25px' }}>
+            <Card 
+              card={dealerHand.card}
+              height={window.screen.availHeight * .25}
+            />
+          </div>
         </Stack>
       </Grid>
       <Grid item xs={12} lg={8}>
@@ -126,31 +138,31 @@ export default function App() {
           />
         </Stack>
       </Grid>
-      <Grid item xs={12} lg={8}>
+      <Grid item xs={12} lg={8} style={{ backgroundColor: '000000' }}>
         <Stack spacing={2} direction="row">
           <Button 
-            variant="outlined"
+            variant="contained"
             onClick={() => calculateBasicStat(playerHand, dealerHand, options.HIT)}
             disabled={gameOver}
           >
             Hit
           </Button>
           <Button 
-            variant="outlined"
+            variant="contained"
             onClick={() => calculateBasicStat(playerHand, dealerHand, options.STAND)}
             disabled={gameOver}
           >
             Stand
           </Button>
           <Button 
-            variant="outlined"
+            variant="contained"
             onClick={() => calculateBasicStat(playerHand, dealerHand, options.DOUBLE)}
             disabled={gameOver}
           >
             Double
           </Button>
           <Button 
-            variant="outlined"
+            variant="contained"
             onClick={() => calculateBasicStat(playerHand, dealerHand, options.SPLIT)}
             disabled={playerHand.cardOne.value !== playerHand.cardTwo.value || gameOver}
           >
@@ -158,25 +170,32 @@ export default function App() {
           </Button>
         </Stack>
       </Grid>
-      {gameOver &&
       <Grid item xs={12} lg={8}>
-        <Stack spacing={2} direction="row">
+        <Stack spacing={2} direction="row" style={{ visibility: gameOver ? 'visible' : 'hidden' }}>
           {blackjack ? 
-            <Alert severity="info">Blackjack</Alert>
+            <Paper>
+              <Alert severity="info" variant="outlined">Blackjack</Alert>
+            </Paper>
             : feedback === 'Nice Play' ?
-            <Alert severity="success">{feedback}</Alert>
+            <Paper>
+              <Alert severity="success" variant="outlined">{feedback}</Alert>
+            </Paper>
             : 
-            <Alert severity="warning">{feedback}</Alert>
+            <Paper>
+              <Alert severity="warning" variant="outlined">{feedback}</Alert>
+            </Paper>
           }
           <Button 
             variant="text"
+            color="secondary"
             onClick={newGame}
           >
-            Play Again
+            <strong>
+              Play Again
+            </strong>
           </Button>
         </Stack>
       </Grid>
-      }
     </Grid>
   );
 }
