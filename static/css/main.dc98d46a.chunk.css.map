@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,UACI,QAAS,CACT,SACJ,CAEA,MACI,wBAAyB,CACzB,+DACJ","file":"main.dc98d46a.chunk.css","sourcesContent":["html, body {\n    margin: 0;\n    padding: 0;\n}\n\n:root {\n    background-color: #006636;\n    background-image: url(\"./img/felt.png\")\n}"]}
