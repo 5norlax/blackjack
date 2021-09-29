@@ -32,11 +32,11 @@ import Card from "@heruka_urgyen/react-playing-cards"
     back :: Boolean
 */
 
-import options from '../utils/enums'
-import {generateHand, generateRandomDraw, convertFaceToTen} from '../utils'
-import { basicStrategyValues, basicStrategyPairs, basicStrategyAces } from '../utils/basicStrategy'
+import options from 'utils/enums'
+import {generateHand, generateRandomDraw, convertFaceToTen} from 'utils'
+import { basicStrategyValues, basicStrategyPairs, basicStrategyAces } from 'utils/basicStrategy'
 
-import backgroundImg from '../img/felt.png'
+import backgroundImg from 'img/felt.png'
 
 export default function App() {
   const [ feedback, setFeedback ] = useState(null)
@@ -112,13 +112,13 @@ export default function App() {
     >
       <Grid item xs={12} lg={8}>
         <Stack spacing={2} direction="row">
-          <div>
+          <div style={{ marginTop: `-${(window.screen.availHeight * .3)*(5/7)*.15}px` }}>
           <Card 
             height={window.screen.availHeight * .25} 
             back
           />
           </div>
-          <div style={{ marginLeft: '-100px', marginTop: '-25px' }}>
+          <div style={{ marginLeft: `calc(-${(window.screen.availHeight * .3)*(5/7)}px + ${(window.screen.availHeight * .3)*(5/7)*.35}px` }}>
             <Card 
               card={dealerHand.card}
               height={window.screen.availHeight * .25}
