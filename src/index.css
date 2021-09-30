@@ -2,8 +2,3 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
-:root {
-    background-color: #006636;
-    background-image: url("./img/felt.png")
-}

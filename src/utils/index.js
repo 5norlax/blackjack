@@ -1,7 +1,7 @@
-export const generateHand = () => {
+export const generateHand = (hands) => {
     const deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 11]
-    const cardOne = deck[Math.floor(Math.random() * (13))]
-    const cardTwo = deck[Math.floor(Math.random() * (13))]
+    const cardOne = hands==='ace' ? 11 : deck[Math.floor(Math.random() * (13))]
+    const cardTwo = hands==='pair' ? cardOne : deck[Math.floor(Math.random() * (13))]
     return {
         cardOne: {
         value: cardOne,
