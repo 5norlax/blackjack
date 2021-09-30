@@ -59,7 +59,7 @@ export const basicStrategyValues = [
 export const basicStrategyPairs = [ 
     [   options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,     options.SPLIT,     options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
     [   options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,     options.SPLIT,     options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
-    [   options.HIT,    options.HIT,    options.HIT,    options.SPLIT,  options.SPLIT,     options.SPLIT,     options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
+    [   options.HIT,    options.HIT,    options.HIT,    options.SPLIT,  options.SPLIT,     options.HIT,       options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
     [   options.DOUBLE, options.DOUBLE, options.DOUBLE, options.DOUBLE, options.DOUBLE,    options.DOUBLE,    options.DOUBLE,    options.DOUBLE,    options.HIT,       options.HIT    ],
     [   options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,     options.HIT,       options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
     [   options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,  options.SPLIT,     options.SPLIT,     options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
