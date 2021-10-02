@@ -27,7 +27,7 @@ export default function Menu({ hands, setHands }) {
 
     return (
         <>
-            <IconButton color="primary" aria-label="menu" component="span" onClick={() => setOpen(true)}>
+            <IconButton color="primary" aria-label="menu" component="span" onClick={() => setOpen(true)} style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}>
                 <MenuIcon />
             </IconButton>
             <Dialog onClose={handleClose} open={open}>

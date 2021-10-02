@@ -111,6 +111,8 @@ export default function App() {
     <div style={{ 
       minHeight: '100vh',
       minWidth: '100vw',
+      padding: 0,
+      margin: 0,
       backgroundColor: '#006636',
       backgroundImage: `url(${backgroundImg})`,
     }}>
