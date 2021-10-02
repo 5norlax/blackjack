@@ -108,11 +108,12 @@ export default function App() {
   }
 
   return (
-    <div style={{ 
-      minHeight: '100vh',
-      minWidth: '100vw',
-      padding: 0,
-      margin: 0,
+    <div style={{
+      position: 'fixed',
+      width: '100%',
+      height: '100%',
+      left: 0,
+      top: 0,
       backgroundColor: '#006636',
       backgroundImage: `url(${backgroundImg})`,
     }}>
@@ -128,7 +129,8 @@ export default function App() {
         justifyContent="center"
         style={{ 
           minHeight: '100%',
-          minWidth: '100%'
+          minWidth: '100%',
+          padding: '2rem 0 2rem',
         }}
       >
         <Grid item xs={12} lg={8}>
@@ -159,7 +161,7 @@ export default function App() {
             />
           </Stack>
         </Grid>
-        <Grid item xs={12} lg={8} style={{ backgroundColor: '000000' }}>
+        <Grid item xs={12} lg={8}>
           <Stack spacing={2} direction="row">
             <Button 
               variant="contained"

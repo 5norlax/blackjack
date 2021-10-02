@@ -15,7 +15,7 @@ import Switch from '@mui/material/Switch';
 
 export default function Menu({ hands, setHands }) {
 
-    const [ open, setOpen ] = useState(false)
+    const [open, setOpen] = useState(false)
 
     const handleClose = () => {
         setOpen(false)
@@ -27,7 +27,18 @@ export default function Menu({ hands, setHands }) {
 
     return (
         <>
-            <IconButton color="primary" aria-label="menu" component="span" onClick={() => setOpen(true)} style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}>
+            <IconButton
+                color="primary"
+                aria-label="menu"
+                component="span"
+                onClick={() => setOpen(true)}
+                style={{
+                    backgroundColor: open ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.1)',
+                    position: 'absolute',
+                    top: '1rem',
+                    left: '1rem'
+                }}
+            >
                 <MenuIcon />
             </IconButton>
             <Dialog onClose={handleClose} open={open}>
@@ -42,7 +53,8 @@ export default function Menu({ hands, setHands }) {
                             exclusive
                             onChange={handleHands}
                             aria-label="hand types"
-                            >
+                            color="info"
+                        >
                             <ToggleButton value="rand" aria-label="random hands">
                                 Random
                             </ToggleButton>
@@ -62,23 +74,25 @@ export default function Menu({ hands, setHands }) {
                             <ToggleButtonGroup
                                 value={"4"}
                                 exclusive
-                                onChange={() => {}}
+                                onChange={() => { }}
                                 aria-label="number of decks"
-                                >
-                                <ToggleButton disabled value="1" aria-label="one deck">
+                                color="info"
+                                disabled
+                            >
+                                <ToggleButton value="1" aria-label="one deck">
                                     One Deck
                                 </ToggleButton>
-                                <ToggleButton disabled value="2" aria-label="two decks">
+                                <ToggleButton value="2" aria-label="two decks">
                                     2 Decks
                                 </ToggleButton>
                                 <ToggleButton value="4" aria-label="four, six or eight decks">
                                     4/6/8 Decks
                                 </ToggleButton>
                             </ToggleButtonGroup>
-                            <FormControlLabel control={<Switch checked={true} color="info" onChange={()=>{}} />} label="Dealer Hit Soft 17" />
-                            <FormControlLabel control={<Switch checked={true} color="info" onChange={()=>{}} />} label="Double After Split" />
-                            <FormControlLabel control={<Switch checked={true} color="info" onChange={()=>{}} />} label="Re-Split Aces" />
-                            <FormControlLabel control={<Switch checked={false} color="info" onChange={()=>{}} />} label="Surrender" />
+                            <FormControlLabel control={<Switch disabled checked={true} color="info" onChange={() => { }} />} label="Dealer Hit Soft 17" />
+                            <FormControlLabel control={<Switch disabled checked={true} color="info" onChange={() => { }} />} label="Double After Split" />
+                            <FormControlLabel control={<Switch disabled checked={true} color="info" onChange={() => { }} />} label="Re-Split Aces" />
+                            <FormControlLabel control={<Switch disabled checked={false} color="info" onChange={() => { }} />} label="Surrender" />
                         </Stack>
                     </DialogActions>
                 </DialogContent>
