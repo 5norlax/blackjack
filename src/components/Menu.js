@@ -54,6 +54,7 @@ export default function Menu({ hands, setHands }) {
                             onChange={handleHands}
                             aria-label="hand types"
                             color="info"
+                            size="medium"
                         >
                             <ToggleButton value="rand" aria-label="random hands">
                                 Random
@@ -77,6 +78,7 @@ export default function Menu({ hands, setHands }) {
                                 onChange={() => { }}
                                 aria-label="number of decks"
                                 color="info"
+                                size="small"
                                 disabled
                             >
                                 <ToggleButton value="1" aria-label="one deck">
