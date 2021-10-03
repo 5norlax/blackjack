@@ -85,8 +85,7 @@ export const basicStrategyAces = [
     [   options.HIT,    options.HIT,    options.DOUBLE, options.DOUBLE, options.DOUBLE,    options.HIT,       options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
     [   options.HIT,    options.HIT,    options.DOUBLE, options.DOUBLE, options.DOUBLE,    options.HIT,       options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
     [   options.HIT,    options.DOUBLE, options.DOUBLE, options.DOUBLE, options.DOUBLE,    options.HIT,       options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
-    [   options.STAND,  options.DOUBLE, options.DOUBLE, options.DOUBLE, options.DOUBLE,    options.STAND,     options.STAND,     options.STAND,     options.STAND,     options.STAND  ],
+    [   options.STAND,  options.DOUBLE, options.DOUBLE, options.DOUBLE, options.DOUBLE,    options.STAND,     options.STAND,     options.HIT,       options.HIT,       options.HIT    ],
     [   options.STAND,  options.STAND,  options.STAND,  options.STAND,  options.DOUBLE,    options.STAND,     options.STAND,     options.STAND,     options.STAND,     options.STAND  ],
     [   options.STAND,  options.STAND,  options.STAND,  options.STAND,  options.STAND,     options.STAND,     options.STAND,     options.STAND,     options.STAND,     options.STAND  ],
-    [   options.HIT,    options.HIT,    options.HIT,    options.HIT,    options.HIT,       options.HIT,       options.HIT,       options.HIT,       options.HIT,       options.HIT    ],
 ]
