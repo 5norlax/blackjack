@@ -2,7 +2,7 @@
   "name": "blackjack",
   "version": "0.1.0",
   "author": "Nicklas Lanman",
-  "homepage": "https://nicklas-io.github.io/blackjack",
+  "homepage": "https://exclamationpointhuman.github.io/blackjack",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.1",
