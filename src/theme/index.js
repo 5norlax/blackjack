@@ -4,10 +4,10 @@ export default createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#cccccc'
+      main: '#cccccc',
     },
     secondary: {
-      main: '#000000'
-    }
+      main: '#000000',
+    },
   },
 })

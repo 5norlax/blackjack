@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Alert from '@mui/material/Alert';
+import Grid from '@mui/material/Grid'
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Alert from '@mui/material/Alert'
 
-import Card from "@heruka_urgyen/react-playing-cards"
+import Card from '@heruka_urgyen/react-playing-cards'
 /*
   <Card card={card} deckType={deckType} height="XXpx" back />
 
@@ -34,27 +34,31 @@ import Card from "@heruka_urgyen/react-playing-cards"
 
 import Menu from 'components/Menu'
 import options from 'utils/enums'
-import {generateHand, generateRandomDraw, convertFaceToTen} from 'utils'
-import { basicStrategyValues, basicStrategyPairs, basicStrategyAces } from 'utils/basicStrategy'
+import { generateHand, generateRandomDraw, convertFaceToTen } from 'utils'
+import {
+  basicStrategyValues,
+  basicStrategyPairs,
+  basicStrategyAces,
+} from 'utils/basicStrategy'
 
 import backgroundImg from 'img/felt.png'
 
 export default function App() {
-  const [ hands, setHands ] = useState('rand')
-  const [ feedback, setFeedback ] = useState(null)
-  const [ blackjack, setBlackjack ] = useState(false)
-  const [ gameOver, setGameOver ] = useState(false)
-  const [ playerHand, setPlayerHand ] = useState(generateHand(hands))
-  const [ dealerHand, setDealerHand ] = useState(generateRandomDraw())
+  const [hands, setHands] = useState('rand')
+  const [feedback, setFeedback] = useState(null)
+  const [blackjack, setBlackjack] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
+  const [playerHand, setPlayerHand] = useState(generateHand(hands))
+  const [dealerHand, setDealerHand] = useState(generateRandomDraw())
 
   useEffect(() => {
     if (playerHand.cardOne.value === 11) {
-      if ([10,'J','Q','K'].includes(playerHand.cardTwo.value)) {
+      if ([10, 'J', 'Q', 'K'].includes(playerHand.cardTwo.value)) {
         setGameOver(true)
         setBlackjack(true)
       }
     } else if (playerHand.cardTwo.value === 11) {
-      if ([10,'J','Q','K'].includes(playerHand.cardOne.value)) {
+      if ([10, 'J', 'Q', 'K'].includes(playerHand.cardOne.value)) {
         setGameOver(true)
         setBlackjack(true)
       }
@@ -83,20 +87,20 @@ export default function App() {
     let strat
     if (hand.cardOne.value === hand.cardTwo.value) {
       hand = convertFaceToTen(hand)
-      if (typeof dealer.value === 'string')
-        dealer.value = 10
+      if (typeof dealer.value === 'string') dealer.value = 10
       strat = basicStrategyPairs[hand.cardOne.value - 2][dealer.value - 2]
-    }
-    else if (hand.cardOne.value === 11 || hand.cardTwo.value === 11) {
+    } else if (hand.cardOne.value === 11 || hand.cardTwo.value === 11) {
       hand = convertFaceToTen(hand)
-      if (typeof dealer.value === 'string')
-        dealer.value = 10
-      strat = basicStrategyAces[hand.cardTwo.value === 11 ? hand.cardOne.value - 2 : hand.cardTwo.value - 2][dealer.value - 2]
-    }
-    else {
+      if (typeof dealer.value === 'string') dealer.value = 10
+      strat =
+        basicStrategyAces[
+          hand.cardTwo.value === 11
+            ? hand.cardOne.value - 2
+            : hand.cardTwo.value - 2
+        ][dealer.value - 2]
+    } else {
       hand = convertFaceToTen(hand)
-      if (typeof dealer.value === 'string')
-        dealer.value = 10
+      if (typeof dealer.value === 'string') dealer.value = 10
       const handValue = hand.cardOne.value + hand.cardTwo.value
       strat = basicStrategyValues[handValue - 2][dealer.value - 2]
     }
@@ -108,26 +112,25 @@ export default function App() {
   }
 
   return (
-    <div style={{
-      position: 'fixed',
-      width: '100%',
-      height: '100%',
-      left: 0,
-      top: 0,
-      backgroundColor: '#006636',
-      backgroundImage: `url(${backgroundImg})`,
-    }}>
-      <Menu
-        hands={hands}
-        setHands={handleHandChange} 
-      />
-      <Grid  
+    <div
+      style={{
+        position: 'fixed',
+        width: '100%',
+        height: '100%',
+        left: 0,
+        top: 0,
+        backgroundColor: '#006636',
+        backgroundImage: `url(${backgroundImg})`,
+      }}
+    >
+      <Menu hands={hands} setHands={handleHandChange} />
+      <Grid
         container
         spacing={2}
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ 
+        style={{
           minHeight: '100%',
           minWidth: '100%',
           padding: '2rem 0 2rem',
@@ -135,91 +138,115 @@ export default function App() {
       >
         <Grid item xs={12} lg={8}>
           <Stack spacing={2} direction="row">
-            <div style={{ marginTop: `-${(window.screen.availHeight * .3)*(5/7)*.10}px` }}>
-            <Card 
-              height={window.screen.availHeight * .25} 
-              back
-            />
+            <div
+              style={{
+                marginTop: `-${
+                  window.screen.availHeight * 0.3 * (5 / 7) * 0.1
+                }px`,
+              }}
+            >
+              <Card height={window.screen.availHeight * 0.25} back />
             </div>
-            <div style={{ marginLeft: `calc(-${(window.screen.availHeight * .3)*(5/7)}px + ${(window.screen.availHeight * .3)*(5/7)*.30}px` }}>
-              <Card 
+            <div
+              style={{
+                marginLeft: `calc(-${
+                  window.screen.availHeight * 0.3 * (5 / 7)
+                }px + ${window.screen.availHeight * 0.3 * (5 / 7) * 0.3}px`,
+              }}
+            >
+              <Card
                 card={dealerHand.card}
-                height={window.screen.availHeight * .25}
+                height={window.screen.availHeight * 0.25}
               />
             </div>
           </Stack>
         </Grid>
         <Grid item xs={12} lg={8}>
           <Stack spacing={2} direction="row">
-            <Card 
+            <Card
               card={playerHand.cardOne.card}
-              height={window.screen.availHeight * .3}
+              height={window.screen.availHeight * 0.3}
             />
-            <Card 
+            <Card
               card={playerHand.cardTwo.card}
-              height={window.screen.availHeight * .3}
+              height={window.screen.availHeight * 0.3}
             />
           </Stack>
         </Grid>
         <Grid item xs={12} lg={8}>
           <Stack spacing={2} direction="row">
-            <Button 
+            <Button
               variant="contained"
-              onClick={() => calculateBasicStat(playerHand, dealerHand, options.HIT)}
+              onClick={() =>
+                calculateBasicStat(playerHand, dealerHand, options.HIT)
+              }
               disabled={gameOver}
             >
               Hit
             </Button>
-            <Button 
+            <Button
               variant="contained"
-              onClick={() => calculateBasicStat(playerHand, dealerHand, options.STAND)}
+              onClick={() =>
+                calculateBasicStat(playerHand, dealerHand, options.STAND)
+              }
               disabled={gameOver}
             >
               Stand
             </Button>
-            <Button 
+            <Button
               variant="contained"
-              onClick={() => calculateBasicStat(playerHand, dealerHand, options.DOUBLE)}
+              onClick={() =>
+                calculateBasicStat(playerHand, dealerHand, options.DOUBLE)
+              }
               disabled={gameOver}
             >
               Double
             </Button>
-            <Button 
+            <Button
               variant="contained"
-              onClick={() => calculateBasicStat(playerHand, dealerHand, options.SPLIT)}
-              disabled={playerHand.cardOne.value !== playerHand.cardTwo.value || gameOver}
+              onClick={() =>
+                calculateBasicStat(playerHand, dealerHand, options.SPLIT)
+              }
+              disabled={
+                playerHand.cardOne.value !== playerHand.cardTwo.value ||
+                gameOver
+              }
             >
               Split
             </Button>
           </Stack>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Stack spacing={2} direction="row" style={{ visibility: gameOver ? 'visible' : 'hidden' }}>
-            {blackjack ? 
+          <Stack
+            spacing={2}
+            direction="row"
+            style={{ visibility: gameOver ? 'visible' : 'hidden' }}
+          >
+            {blackjack ? (
               <Paper>
-                <Alert severity="info" variant="outlined">Blackjack</Alert>
+                <Alert severity="info" variant="outlined">
+                  Blackjack
+                </Alert>
               </Paper>
-              : feedback === 'Nice Play' ?
+            ) : feedback === 'Nice Play' ? (
               <Paper>
-                <Alert severity="success" variant="outlined">{feedback}</Alert>
+                <Alert severity="success" variant="outlined">
+                  {feedback}
+                </Alert>
               </Paper>
-              : 
+            ) : (
               <Paper>
-                <Alert severity="warning" variant="outlined">{feedback}</Alert>
+                <Alert severity="warning" variant="outlined">
+                  {feedback}
+                </Alert>
               </Paper>
-            }
-            <Button 
-              variant="text"
-              color="secondary"
-              onClick={newGame}
-            >
-              <strong>
-                Play Again
-              </strong>
+            )}
+            <Button variant="text" color="secondary" onClick={newGame}>
+              <strong>Play Again</strong>
             </Button>
           </Stack>
         </Grid>
       </Grid>
     </div>
-  );
+  )
 }
