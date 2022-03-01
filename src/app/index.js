@@ -46,6 +46,7 @@ import backgroundImg from 'img/felt.png'
 export default function App() {
   const [hands, setHands] = useState('rand')
   const [feedback, setFeedback] = useState(null)
+  const [answer, setAnswer] = useState(null)
   const [blackjack, setBlackjack] = useState(false)
   const [gameOver, setGameOver] = useState(false)
   const [playerHand, setPlayerHand] = useState(generateHand(hands))
@@ -67,6 +68,7 @@ export default function App() {
 
   const newGame = () => {
     setGameOver(false)
+    setAnswer(null)
     setFeedback(null)
     setBlackjack(false)
     setPlayerHand(generateHand(hands))
@@ -83,6 +85,7 @@ export default function App() {
   }
 
   const calculateBasicStat = (hand, dealer, guess) => {
+    setAnswer(guess)
     setGameOver(true)
     let strat
     if (hand.cardOne.value === hand.cardTwo.value) {
@@ -145,7 +148,10 @@ export default function App() {
                 }px`,
               }}
             >
-              <Card height={window.screen.availHeight * 0.25} back />
+              <Card
+                height={Math.floor(window.screen.availHeight * 0.25, 550)}
+                back
+              />
             </div>
             <div
               style={{
@@ -156,7 +162,7 @@ export default function App() {
             >
               <Card
                 card={dealerHand.card}
-                height={window.screen.availHeight * 0.25}
+                height={Math.floor(window.screen.availHeight * 0.25, 550)}
               />
             </div>
           </Stack>
@@ -165,18 +171,18 @@ export default function App() {
           <Stack spacing={2} direction="row">
             <Card
               card={playerHand.cardOne.card}
-              height={window.screen.availHeight * 0.3}
+              height={Math.floor(window.screen.availHeight * 0.3, 600)}
             />
             <Card
               card={playerHand.cardTwo.card}
-              height={window.screen.availHeight * 0.3}
+              height={Math.floor(window.screen.availHeight * 0.3, 600)}
             />
           </Stack>
         </Grid>
         <Grid item xs={12} lg={8}>
           <Stack spacing={2} direction="row">
             <Button
-              variant="contained"
+              variant={answer === options.HIT ? 'outlined' : 'contained'}
               onClick={() =>
                 calculateBasicStat(playerHand, dealerHand, options.HIT)
               }
@@ -185,7 +191,7 @@ export default function App() {
               Hit
             </Button>
             <Button
-              variant="contained"
+              variant={answer === options.STAND ? 'outlined' : 'contained'}
               onClick={() =>
                 calculateBasicStat(playerHand, dealerHand, options.STAND)
               }
@@ -194,7 +200,7 @@ export default function App() {
               Stand
             </Button>
             <Button
-              variant="contained"
+              variant={answer === options.DOUBLE ? 'outlined' : 'contained'}
               onClick={() =>
                 calculateBasicStat(playerHand, dealerHand, options.DOUBLE)
               }
@@ -203,7 +209,7 @@ export default function App() {
               Double
             </Button>
             <Button
-              variant="contained"
+              variant={answer === options.SPLIT ? 'outlined' : 'contained'}
               onClick={() =>
                 calculateBasicStat(playerHand, dealerHand, options.SPLIT)
               }
