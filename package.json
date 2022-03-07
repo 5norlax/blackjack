@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
+    "deploy": "echo 'basicstrategy.net' > ./build/CNAME && gh-pages -d build",
     "prettier": "npx prettier --check .",
     "prettier:fix": "npx prettier --write ."
   },
