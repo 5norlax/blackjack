@@ -2,7 +2,7 @@
   "name": "blackjack",
   "version": "0.1.0",
   "author": "!human",
-  "homepage": "https://exclamationpointhuman.github.io/blackjack",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.1",
