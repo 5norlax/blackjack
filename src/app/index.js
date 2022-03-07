@@ -149,7 +149,7 @@ export default function App() {
               }}
             >
               <Card
-                height={Math.floor(window.screen.availHeight * 0.25, 550)}
+                height={Math.floor(window.screen.availHeight * 0.25, 300)}
                 back
               />
             </div>
@@ -162,7 +162,7 @@ export default function App() {
             >
               <Card
                 card={dealerHand.card}
-                height={Math.floor(window.screen.availHeight * 0.25, 550)}
+                height={Math.floor(window.screen.availHeight * 0.25, 300)}
               />
             </div>
           </Stack>
@@ -171,11 +171,11 @@ export default function App() {
           <Stack spacing={2} direction="row">
             <Card
               card={playerHand.cardOne.card}
-              height={Math.floor(window.screen.availHeight * 0.3, 600)}
+              height={Math.floor(window.screen.availHeight * 0.3, 350)}
             />
             <Card
               card={playerHand.cardTwo.card}
-              height={Math.floor(window.screen.availHeight * 0.3, 600)}
+              height={Math.floor(window.screen.availHeight * 0.3, 350)}
             />
           </Stack>
         </Grid>
