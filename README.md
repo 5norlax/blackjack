@@ -1,7 +1,7 @@
 # blackjack
 
 <p>
-  <a href="https://basicstategy.net" alt="GitHub Pages">
+  <a href="https://basicstrategy.net/" alt="GitHub Pages">
     <img src="https://img.shields.io/badge/pages%20-deployed-%23222222?logo=github&style=flat-square" />
   </a>
 </p>
