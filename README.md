@@ -6,7 +6,7 @@
   </a>
 </p>
 
-![demo](https://raw.githubusercontent.com/exclamationpointhuman/demo/main/blackjack/demo.gif)
+![demo](https://raw.githubusercontent.com/niknakz/demo/main/blackjack/demo.gif)
 
 The purpose of this app is to practice using basic strategy, the basic strategy variant that this app uses is derived from a rule set (listed below) that you'll likely see at most $10 - $1000 blackjack tables.
 

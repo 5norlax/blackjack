@@ -1,7 +1,6 @@
 {
   "name": "blackjack",
   "version": "0.1.0",
-  "author": "!human",
   "homepage": ".",
   "private": true,
   "dependencies": {
