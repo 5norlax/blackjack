@@ -16,7 +16,6 @@ jobs:
         run: |
           npm ci
           npm run build
-          echo 'basicstrategy.net' > ./build/CNAME
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
